@@ -67,14 +67,15 @@ function App() {
     setShowStrength(true);
     setPassword(password);
     setStrength(() => {
-      if (password.length >= 6 && regexStrong.test(password)) {
+      if (password.length >= 6 && regexStrong.test(password) ||
+      (password.length >= 4 && regexStrong2.test(password))) {
         return "Strong";
       } else if (
-        (password.length >= 6 &&
+          password.length >= 6 &&
           regexWeak1.test(password) &&
           regexWeak2.test(password) &&
-          regexWeak3.test(password)) ||
-        (password.length >= 4 && regexStrong2.test(password))
+          regexWeak3.test(password)
+        
       ) {
         return "Medium";
       } else if (
